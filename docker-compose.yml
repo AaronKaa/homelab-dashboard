@@ -1,0 +1,37 @@
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: dashboard-backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - go-sqlite-data:/items.db
+      - go-uploads:/uploads
+    networks:
+      - homelab-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: dashboard-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - homelab-network
+    # Optional environment variables if you want to call the Go service by its container name
+    environment:
+      - BACKEND_URL=http://backend:3001
+
+networks:
+  homelab-network:
+    driver: bridge
+
+volumes:
+    go-sqlite-data:
+    go-uploads:
+    
