@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import AddItemModal from "../components/AddItemModal"
 import LinkItem from "../components/LinkItem"
+import NoLinks from "../components/NoLinks"
 import { Icon } from "@iconify/react";
 
 interface Item {
@@ -15,7 +16,7 @@ interface Item {
 export default function HomePage() {
   const [items, setItems] = useState<Item[]>([])
   const [showModal, setShowModal] = useState(false)
-  const backendUrl = process.env.BACKEND_URL || "http://localhost:3001";
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001";
   
   useEffect(() => {
     fetchItems(backendUrl)
@@ -80,7 +81,7 @@ export default function HomePage() {
   return (
     <div style={{ padding: "2rem" }}>
 
-      <button className="absolute top-5 right-5 text-white bg-gray-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={() => setShowModal(true)}>
+      <button className="absolute top-5 right-5 text-white hover:bg-gray-700 bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={() => setShowModal(true)}>
           <Icon icon="solar:add-square-bold" width="24" height="24" />
       </button>
 
@@ -92,9 +93,9 @@ export default function HomePage() {
       )}
 
       {items.length === 0 ? (
-          <p>No items</p>
+          <NoLinks />
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
             {items.map((item) => (
               <LinkItem key={item.id} item={item} onDelete={handleDeleteItem}/>
             ))}

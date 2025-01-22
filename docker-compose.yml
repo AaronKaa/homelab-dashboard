@@ -25,7 +25,7 @@ services:
       - homelab-network
     # Optional environment variables if you want to call the Go service by its container name
     environment:
-      - BACKEND_URL=http://backend:3001
+      - NEXT_PUBLIC_BACKEND_URL=http://backend:3001
 
 networks:
   homelab-network:

@@ -12,8 +12,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-gray-600 antialiased dark:bg-gray-900 dark:text-gray-400">
-        <main className="flex min-h-screen items-center justify-center gap-2 dark:bg-gray-800">
+      <body className="antialiased bg-gray-900 text-gray-400">
+        <main className="flex min-h-screen items-center justify-center gap-2 bg-gray-800">
           {children}
         </main>
       </body>
