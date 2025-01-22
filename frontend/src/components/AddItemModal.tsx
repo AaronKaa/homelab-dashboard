@@ -2,6 +2,7 @@
 
 import React, { useState, FormEvent, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
+import { Icon } from "@iconify/react";
 
 interface AddItemModalProps {
   onClose: () => void;
@@ -85,11 +86,20 @@ export default function AddItemModal({ onClose, onAdd }: AddItemModalProps) {
               >
                 <input {...getInputProps()} />
                 {isDragActive ? (
-                  <p>Drop the file here...</p>
+                    <div>
+                        <Icon className="mx-auto" icon="solar:cloud-upload-bold-duotone" width="60" height="60" /> 
+                        <p className="text-sm">Drop here</p>
+                    </div>
                 ) : droppedFile ? (
-                  <p>File ready: {droppedFile.name}</p>
+                    <div>
+                        <Icon className="mx-auto" icon="solar:file-smile-line-duotone" width="60" height="60" />
+                        <p className="text-sm">{droppedFile.name}</p>
+                    </div>
                 ) : (
-                  <p>Drop an image here, or click to select</p>
+                    <div>
+                    <Icon className="mx-auto" icon="solar:cloud-upload-bold-duotone" width="60" height="60" /> 
+                      <p className="text-sm">Drag or click to add an image</p>
+                    </div>
                 )}
               </div>
 

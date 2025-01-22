@@ -19,3 +19,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+iconify-icon {
+ display: inline-block;
+ width: 1em;
+ height: 1em;
+}

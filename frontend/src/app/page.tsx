@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import AddItemModal from "../components/AddItemModal"
 import LinkItem from "../components/LinkItem"
+import { Icon } from "@iconify/react";
 
 interface Item {
   id: number
@@ -79,8 +80,8 @@ export default function HomePage() {
   return (
     <div style={{ padding: "2rem" }}>
 
-      <button className="absolute top-5 right-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={() => setShowModal(true)}>
-          Add
+      <button className="absolute top-5 right-5 text-white bg-gray-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={() => setShowModal(true)}>
+          <Icon icon="solar:add-square-bold" width="24" height="24" />
       </button>
 
       {showModal && (
