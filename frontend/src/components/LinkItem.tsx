@@ -16,10 +16,9 @@ interface LinkItemAdvProps {
   onDelete: (id: number) => void | Promise<void>;
 }
 
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+
 const LinkItemAdv: FC<LinkItemAdvProps> = ({ item, onDelete }) => {
-    
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
-    
   return (
     <div className="relative z-0">
       <a
@@ -32,10 +31,10 @@ const LinkItemAdv: FC<LinkItemAdvProps> = ({ item, onDelete }) => {
         src={backendUrl + `${item.imageUrl}`}
         width={160}
         height={160}
-        alt="Picture of the author"
+        alt={item.title}
         className="transition ease-in-out hover:brightness-110 hover:shadow-xl hover:scale-[1.05] h-40 w-40 object-cover max-w-full rounded-lg"
-        style={{objectFit: "cover"}}
         objectFit="cover"
+        unoptimized
       />
         <figcaption className="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">
           {item.title}
