@@ -24,11 +24,11 @@ jobs:
         with:
           context: ./backend
           push: true
-          tags: ghcr.io/AaronKaa/golang-backend:latest, ghcr.io/AaronKaa/homelab-backend:${{ github.sha }}
+          tags: ghcr.io/aaronkaa/golang-backend:latest, ghcr.io/aaronkaa/homelab-backend:${{ github.sha }}
 
       - name: Build and push Next.js frontend
         uses: docker/build-push-action@v3
         with:
           context: ./frontend
           push: true
-          tags: ghcr.io/AaronKaa/nextjs-frontend:latest, ghcr.io/AaronKaa/homelab-frontend:${{ github.sha }}
+          tags: ghcr.io/aaronkaa/nextjs-frontend:latest, ghcr.io/aaronkaa/homelab-frontend:${{ github.sha }}
