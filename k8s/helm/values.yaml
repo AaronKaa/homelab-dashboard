@@ -1,0 +1,33 @@
+# values.yaml
+
+backend:
+  image:
+    repository: "ghcr.io/aaronkaa/golang-backend"
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  replicas: 1
+  service:
+    type: ClusterIP
+    port: 3001
+
+frontend:
+  image:
+    repository: "ghcr.io/aaronkaa/nextjs-frontend"
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  replicas: 1
+  service:
+    type: ClusterIP
+    port: 80
+  env:
+    BACKEND_URL: "http://homelab-dashboard-backend:3001"
+
+ingress:
+  enabled: true
+  className: "nginx"
+  hostname: "dashboard.local"
+  tls: []
+  # tls:
+  #   - hosts:
+  #       - dashboard.local
+  #     secretName: dashboard-tls

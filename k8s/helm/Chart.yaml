@@ -1,0 +1,5 @@
+apiVersion: v2
+name: homelab-dashboard
+description: A Helm chart for deploying Next.js + Go homelab dashboard
+version: 0.1.0
+appVersion: "1.0.0"
