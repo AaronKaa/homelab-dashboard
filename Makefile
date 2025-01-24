@@ -1,10 +1,10 @@
 .PHONY: install up down test
 
 install:
-	bash scripts/install.sh
+	bash scripts/run.sh up-build
 
 up:
-	bash scripts/up.sh
+	bash scripts/run.sh up
 
 down:
-	bash scripts/down.sh
+	bash scripts/run.sh down
